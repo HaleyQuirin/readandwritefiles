@@ -1,6 +1,16 @@
-file = open("EmployeePay.csv", "r")
+import csv
 
-contents = file.read()
-print(contents)
+infile = open("EmployeePay.csv", "r")
 
-file.close
+contents = csv.reader(infile, delimiter=",")
+
+for details in contents:
+    print("EmployeeID :", details[0])
+    print("FirstName :", details[1])
+    print("LastName :", details[2])
+    print("Salary :", details[3])
+    print("Bonus :", details[4])
+    print("                       ")
+    print("                       ")
+
+infile.close()
