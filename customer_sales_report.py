@@ -6,12 +6,12 @@ outfile = csv.writer(write)
 
 next(infile)
 
-read = csv.reader(infile, delimiter=",")
+read = csv.reader(infile, delimiter=",")  # "," will be seen as the delimiter
 
-outfile.writerow(["Customer ID          Total"])
+outfile.writerow(["Customer ID, Total"])  # title at teh top of the "sales report"
 
-CustomerID = "250"
-CustomerTotal = 0
+CustomerID = "250"  # starting point
+CustomerTotal = 0  # starting point
 
 
 for line in read:
