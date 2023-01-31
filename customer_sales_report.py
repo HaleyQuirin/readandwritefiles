@@ -16,7 +16,9 @@ CustomerTotal = 0  # starting point
 
 for line in read:
     if CustomerID != line[0]:
-        outfile.writerow([CustomerID] + [str(CustomerTotal)])
+        outfile.writerow(
+            [CustomerID] + [str(format(CustomerTotal, ".2f"))]
+        )  # round decimal place
         Total = 0
         CustomerTotal = 0
         CustomerID = line[0]
@@ -25,7 +27,9 @@ for line in read:
     else:
         Total = float(line[3]) + float(line[4]) + float(line[5])
         CustomerTotal += Total
-outfile.writerow([CustomerID] + [str(CustomerTotal)])
+outfile.writerow(
+    [CustomerID] + [str(format(CustomerTotal, ".2f"))]
+)  # round decimal place
 
 
 infile.close()
